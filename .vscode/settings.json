@@ -1,0 +1,19 @@
+{
+    "idf.adapterTargetName": "esp32",
+    "files.associations": {
+        "adc_handler.h": "c",
+        "stationmode.h": "c",
+        "wifi_info_handler.h": "c",
+        "context.h": "c",
+        "constants.h": "c",
+        "accesspointmode.h": "c",
+        "tcpserver.h": "c",
+        "params.h": "c",
+        "string.h": "c",
+        "stdio.h": "c",
+        "sdkconfig.h": "c",
+        "stdbool.h": "c",
+        "pwm_handler.h": "c",
+        "flash_boot_handler.h": "c"
+    }
+}
