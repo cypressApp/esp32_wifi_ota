@@ -4,6 +4,19 @@
 
 #define GET_INFO "GET_INFO\r\n"
 
+#define START_PAIRING "StartP"
+#define SET_ROUTER_SSID_PREFIX "ssid:"
+#define SET_ROUTER_SSID_SUFFIX "rr"
+#define SET_ROUTER_PASS_PREFIX "pass:"
+#define SET_ROUTER_PASS_SUFFIX "majid"
+#define FINISH_PAIRING "FinishP"
+#define PAIR_ACK_RESPONSE "pAck"
+
+#define START_PAIRING_IND   0
+#define SET_ROUTER_SSID_IND 1
+#define SET_ROUTER_PASS_IND 2
+#define FINISH_PAIRING_IND  3
+
 extern int  pairing_step;
 extern int  ap_step;
 extern char temp_ssid    [128];

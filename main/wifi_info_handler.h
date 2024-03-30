@@ -1,5 +1,11 @@
 #include "esp_netif.h"
 
+#define  AP_MODE     1
+#define  STA_MODE    2
+
+#define WIFI_STA_MODE "WiMStA\r\n"
+#define WIFI_AP_MODE  "WiMAcP\r\n"
+
 extern esp_netif_t * p_netif;
 extern uint8_t device_mac_address[10];
 

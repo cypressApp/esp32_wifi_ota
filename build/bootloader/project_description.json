@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "C:/esp/esp-idf-v5.0.1/components/bootloader/subproject",
-    "build_dir":          "C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e5_ota_wifi_tcp/build/bootloader",
-    "config_file":        "C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e5_ota_wifi_tcp/sdkconfig",
+    "build_dir":          "C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e7_smart_device/build/bootloader",
+    "config_file":        "C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e7_smart_device/sdkconfig",
     "config_defaults":    "",
     "bootloader_elf":     "",
     "app_elf":            "bootloader.elf",

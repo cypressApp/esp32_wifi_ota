@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e5_ota_wifi_tcp/build/bootloader/esp-idf/esp_hw_support/port/esp32/cmake_install.cmake")
+  include("C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e7_smart_device/build/bootloader/esp-idf/esp_hw_support/port/esp32/cmake_install.cmake")
 endif()
 

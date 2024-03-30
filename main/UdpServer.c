@@ -9,15 +9,60 @@ int  temp_ssid_len = 0;
 int  temp_password_len = 0;
 int  send_data_len = 0;
 bool response_required = false;
-long int  random_code = 111111;
+long int random_code = 111111;
 
 void processData(int sock, int ip4 , char *rx_buffer , struct sockaddr *sourceAddr , int len){
 	
 	response_required = false;
 	 	
 	if(memcmp(rx_buffer , GET_INFO , 10) == 0){     
+	
 		udp_get_info_response(sock, ip4 ,0 , rx_buffer);
-	} 	
+	
+	}else if(memcmp(rx_buffer , START_PAIRING , strlen(START_PAIRING)) == 0){
+		
+		if(pairing_step == START_PAIRING_IND){
+			pairing_step++;
+			response_required = true;	
+			send_data_len = sprintf(send_data , "%s" , PAIR_ACK_RESPONSE);
+			xTaskCreate(pairing_time_out_handler, "pairing_time_out_handler", 1024, NULL, 5, NULL);
+		}
+
+	} else if(is_pairing_command_valid(rx_buffer , SET_ROUTER_SSID_PREFIX , SET_ROUTER_SSID_SUFFIX) ){
+	
+		if(pairing_step == SET_ROUTER_SSID_IND){
+			temp_ssid_len = strlen(rx_buffer) - strlen(SET_ROUTER_SSID_PREFIX) - strlen(SET_ROUTER_SSID_SUFFIX);
+			memcpy(temp_ssid , (rx_buffer + strlen(SET_ROUTER_SSID_PREFIX)) , temp_ssid_len);
+			temp_ssid[temp_ssid_len] = 0;
+			temp_ssid_len += 1;
+			pairing_step++;
+			response_required = true;
+			send_data_len = sprintf(send_data , "%s" , PAIR_ACK_RESPONSE);
+		}
+	
+	} else if(is_pairing_command_valid(rx_buffer , SET_ROUTER_PASS_PREFIX , SET_ROUTER_PASS_SUFFIX)){
+		
+		if(pairing_step == SET_ROUTER_PASS_IND){
+			temp_password_len = strlen(rx_buffer) - strlen(SET_ROUTER_PASS_PREFIX) - strlen(SET_ROUTER_PASS_SUFFIX);
+			memcpy(temp_password , (rx_buffer + strlen(SET_ROUTER_PASS_PREFIX)) , temp_password_len);
+			temp_password[temp_password_len] = 0;
+			temp_password_len += 1;
+			pairing_step++;
+			response_required = true;
+			send_data_len = sprintf(send_data , "%s" , PAIR_ACK_RESPONSE);
+		}
+
+	} else if(memcmp(rx_buffer , FINISH_PAIRING , strlen(FINISH_PAIRING)) == 0){
+		
+		if(pairing_step == FINISH_PAIRING_IND){
+			flash_store_wifi_router_info(temp_ssid , temp_password , WIFI_STA_MODE , temp_ssid_len , temp_password_len);
+			pairing_step = START_PAIRING_IND;
+			response_required = true;
+			send_data_len = sprintf(send_data , "%s" , PAIR_ACK_RESPONSE);
+			xTaskCreate(pairing_esp_restart, "pairing_esp_restart", 1024, NULL, 5, NULL);  
+		}
+		
+	}	
 	
 }
 
@@ -120,7 +165,7 @@ void udp_server_task(void *pvParameters)
 		
 					if(response_required){
 
-						printf(send_data);	
+						// printf(send_data);	
 						
 						int err = sendto(sock, send_data, send_data_len, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
 						

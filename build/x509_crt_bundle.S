@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e5_ota_wifi_tcp/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e7_smart_device/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e5_ota_wifi_tcp/managed_components/espressif__led_strip
+# Install script for directory: C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e7_smart_device/managed_components/espressif__led_strip
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

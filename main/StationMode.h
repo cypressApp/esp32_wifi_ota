@@ -4,7 +4,7 @@
 #include "freertos/event_groups.h"
 #include "esp_event.h"
 
-#undef WIFI_STA_DB
+#define WIFI_STA_DB
 #undef ENABLE_WIFI_STATIC_IP
 
 #define EXAMPLE_ESP_WIFI_SSID      ""

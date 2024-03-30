@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e5_ota_wifi_tcp/main
+# Install script for directory: C:/Users/35192/Desktop/Cypress/Terminal/Cypress Terminal Platform/e7_smart_device/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

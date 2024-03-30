@@ -13,4 +13,9 @@ idf_component_register(SRCS
 "ota_lib/ota_handler.c"
 "ota_lib/flash_boot_handler.c"
 "checksum_handler.c"
+"memory_handler/flash_wifi_info_handler.c"
+"memory_handler/flash_reset_handler.c"
+"reset_handler.c"
+
+
                        INCLUDE_DIRS ".")

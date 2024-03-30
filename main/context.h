@@ -51,3 +51,7 @@
 #include "ota_lib/ota_handler.h"
 #include "ota_lib/flash_boot_handler.h"
 #include "checksum_handler.h"
+#include "memory_handler/flash_wifi_info_handler.h"
+#include "memory_handler/flash_reset_handler.h"
+#include "partitions.h"
+#include "reset_handler.h"
